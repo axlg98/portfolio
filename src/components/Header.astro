@@ -1,10 +1,14 @@
-<header class="flex justify-between items-center p-4 bg-gray-800 text-white">
-  <h1 class="flex text-2xl">Axel García</h1>
-    <div class="justify-between items-center ">
-        <nav class="flex space-x-4  items-center justify-between px-4"> 
-          <a href="/about">Sobre mí</a>
-          <a href="/project">Proyecto</a>
-          <a href="/contact">Contacto</a>
-        </nav>
-    </div>  
+---
+import Badge from './Badge.astro'
+import HeaderIcons from './icons/HeaderIcons.astro'
+---
+<header class="  flex justify-between items-center py-3 w-[1120px] mx-auto">
+      <div class="flex justify-start py-10">
+          <HeaderIcons/>
+      </div>
+      <nav class="flex flex-row gap-x-10 opacity-80 justify-end px-12 text-white"> 
+          <a href="/about"><Badge> Sobre mí </Badge></a>
+          <a href="/project"><Badge>Proyecto</Badge></a>
+          <a href="/contact"><Badge>Contacto</Badge></a>
+      </nav>
 </header>
