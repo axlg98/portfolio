@@ -1,14 +1,9 @@
 ---
-import Badge from './Badge.astro'
-import HeaderIcons from './icons/HeaderIcons.astro'
 ---
-<header class="  flex justify-between items-center py-3 w-[1120px] mx-auto">
-      <div class="flex justify-start py-10">
-          <HeaderIcons/>
-      </div>
-      <nav class="flex flex-row gap-x-10 opacity-80 justify-end px-12 text-white"> 
-          <a href="/about"><Badge> Sobre mí </Badge></a>
-          <a href="/project"><Badge>Proyecto</Badge></a>
-          <a href="/contact"><Badge>Contacto</Badge></a>
+<header class="  flex justify-center items-center py-5 w-[1120px] mx-auto">
+      <nav class="flex flex-row gap-x-10 opacity-80 "> 
+          <a href="/about">Sobre mí </a>
+          <a href="#proyecto">Proyecto</a>
+          <a href="#contacto">Contacto</a>
       </nav>
 </header>

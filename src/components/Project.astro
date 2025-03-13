@@ -1,32 +1,95 @@
 ---
-const projects = [
-    {
-        title: "Project One",
-        description: "Description for project one.",
-        link: "https://example.com/project-one"
+
+import HTMLIcon from './icons/HTMLIcon.astro'
+import CSSIcon from './icons/CSSIcon.astro'
+import JsIcon from './icons/JsIcon.astro'
+import LinkButton from './LinkButton.astro';
+import GithubIcon from './icons/GithubIcon.astro';
+import LinkedinIcon from './icons/LinkedinIcon.astro';
+
+
+const TAG = {
+    HTML: {
+        name: 'HTML',
+        class: 'bg-orange-500 text-white',
+        icon: HTMLIcon,
     },
-    {
-        title: "Project Two",
-        description: "Description for project two.",
-        link: "https://example.com/project-two"
+    CSS: {
+        name: 'CSS',
+        class: 'bg-[#003159] text-white',
+        icon: CSSIcon,
     },
-    {
-        title: "Project Three",
-        description: "Description for project three.",
-        link: "https://example.com/project-three"
+    JAVASCRIPT: {
+        name: 'JavaScript',
+        class: 'bg-orange-500 text-white',
+        icon: JsIcon,
     }
+}
+
+const PROYECTS = [
+    {
+        title: "Código Encriptador",
+        github:"https://github.com/axlg98/Challenge-codigo-secreto",
+        image: "/image/challenge.png",
+        description: "Código encriptador de mensajes donde se escribe un texto y lo puede tanto desencriptar como encriptar el texto.",
+        link: "https://axlg98.github.io/Challenge-codigo-secreto/inicio.html",
+        tags: [TAG.HTML, TAG.CSS, TAG.JAVASCRIPT],
+    },
 ];
 ---
 
-<section>
-    <h2>My Projects</h2>
-    <ul>
-        {projects.map(project => (
-            <li>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <a href={project.link} target="_blank">View Project</a>
-            </li>
-        ))}
-    </ul>
-</section>
+<div class="flex flex-col gap-y-16">
+
+    {
+        PROYECTS.map(({title,link,description,tags,github,image}) => (
+            <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+                <div class="w-full md:w-1/2">
+                    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                        <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 md:max-w-lg">
+            <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                    {title}
+            </h3>
+            <div class="flex flex-wrap mt-2">
+                <ul class="flex flex-row mb-2 gap-x-2">
+                    {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex rounded-full text-xs ${tag.class} py-1 px-2`}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+                <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+                    <footer class="flex items-end justify-start mt-4 gap-x-4">
+                        {github && (
+                        <LinkButton href={github}>
+                            <GithubIcon class="size-6" />
+                                Code
+                        
+                      </LinkButton>
+                        )}
+                        {link && (
+                        <LinkButton href={link}>
+                            <LinkedinIcon class="size-4" />
+                                Preview
+                            </LinkButton>
+                        )}
+                    </footer>
+                </div>
+            </div>
+        </article>
+        ))
+    }
+
+</div>
+
+
+
+
