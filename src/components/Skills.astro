@@ -1,0 +1,67 @@
+---
+
+import HTMLIcon from './icons/HTMLIcon.astro'
+import CSSIcon from './icons/CSSIcon.astro'
+import JsIcon from './icons/JsIcon.astro'
+import PostgreSQLIcon from './icons/PostgreSQLIcon.astro'
+import JavaIcon from './icons/JavaIcon.astro'
+
+
+const TAG = {
+    HTML: {
+        name: 'HTML',
+        icon: HTMLIcon,
+    },
+    CSS: {
+        name: 'CSS',
+        icon: CSSIcon,
+    },
+    JAVASCRIPT: {
+        name: 'JavaScript',
+        icon: JsIcon,
+    },
+    POSTGRESQL:{
+        name: 'PostgreSQL',
+        icon: PostgreSQLIcon,
+    },
+    JAVA:{
+        name: 'Java',
+        icon: JavaIcon,
+    }
+}
+
+const SKILLS = [
+    {
+        title: "Programaciòn",
+        tags:[TAG.HTML,TAG.CSS,TAG.JAVASCRIPT,TAG.JAVA],
+    },{
+        title: "Base de datos",
+        tags:[TAG.POSTGRESQL],
+    }
+]
+---
+
+<div class="flex flex-col gap-y-16">
+    {
+        SKILLS.map(({title,tags}) => (
+            <section>
+                <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                    {title}
+                </h2>
+            </section>
+            <ul class="flex flex-row mb-2 gap-x-2">
+                {tags.map((tag) => (
+                    <li>
+                        <span
+                            class={`flex rounded-full text-xs bg-gray-800 text-white py-1 px-2`}
+                        >
+                            <tag.icon class="w-4 h-4 mr-1" />
+                            {tag.name}
+                        </span>
+                    </li>
+        ))
+                }
+            </ul>
+        ))
+    }
+</div>
