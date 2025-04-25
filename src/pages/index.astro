@@ -7,6 +7,7 @@ import Skills from '@/components/Skills.astro';
 import SectionContainer from '@/components/SectionContainer.astro';
 import TitleSection from '@/components/TitleSection.astro';
 import CodeIcon from '@/components/icons/CodeIcon.astro';
+import SkillIcon from '@/components/icons/SkillIcon.astro';
 ---
 
 <Layout>
@@ -18,7 +19,14 @@ import CodeIcon from '@/components/icons/CodeIcon.astro';
 		</TitleSection>
 		<Project/>
 	</SectionContainer>
-	<Skills/>
+	<SectionContainer class="py-44 pb-24" id = "proyecto">
+		<TitleSection>
+			<SkillIcon class="size-7" />
+			Habilidades
+		</TitleSection>
+		<Skills/>
+	</SectionContainer>
+	
 	<Contacts/>
 </Layout>
 
